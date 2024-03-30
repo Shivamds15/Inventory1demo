@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo5v0qomqnudc"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_dgjap"]
+[ext_resource type="Script" path="res://scripts/Inventory.gd" id="1_t2rts"]
+[ext_resource type="PackedScene" uid="uid://dfr2drlo4tal5" path="res://scenes/slot.tscn" id="1_xjtf5"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="2_1v8gd"]
+[ext_resource type="PackedScene" uid="uid://20rvrdxamqjt" path="res://scenes/passive_slot.tscn" id="2_xtvme"]
+[ext_resource type="Texture2D" uid="uid://cvo3ah3dcax5b" path="res://assets/curated/wp2831940-black-background-png.png" id="3_tmw3c"]
+[ext_resource type="PackedScene" uid="uid://cfrnq68rhhaqx" path="res://scenes/active_slot.tscn" id="6_7mmrc"]
+[ext_resource type="PackedScene" uid="uid://bxywc6nldtqdu" path="res://scenes/player.tscn" id="6_ivqje"]
+[ext_resource type="PackedScene" uid="uid://7hn3w8lcmgbl" path="res://scenes/abstract_data.tscn" id="7_udffo"]
+[ext_resource type="Texture2D" uid="uid://dhmm0xxqab1he" path="res://assets/curated/wp2831927-black-background-png.jpg" id="9_b23nw"]
+[ext_resource type="FontFile" uid="uid://bqntlrgggctyo" path="res://assets/Micro_5/Micro5-Regular.ttf" id="9_sx3ft"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dgjap")
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+modulate = Color(0.988235, 0.34902, 0.27451, 1)
+self_modulate = Color(1, 0.454902, 0.14902, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.85
+anchor_bottom = 16.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_b23nw")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="UI"]
+modulate = Color(1, 0.976471, 1, 0.780392)
+self_modulate = Color(0.764706, 0.0784314, 0.0862745, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.85
+anchor_top = 4.1
+anchor_right = 26.225
+anchor_bottom = 11.025
+offset_top = -1.52588e-05
+offset_right = -0.000976562
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.772881, 0.986212)
+texture = ExtResource("3_tmw3c")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 235.0
+offset_right = 502.0
+offset_bottom = 275.0
+scale = Vector2(3.3962, 3.36064)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+script = ExtResource("1_t2rts")
+
+[node name="slot" parent="UI/Inventory" instance=ExtResource("1_xjtf5")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/Inventory" instance=ExtResource("1_xjtf5")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/Inventory" instance=ExtResource("1_xjtf5")]
+layout_mode = 2
+
+[node name="Character" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 413.0
+offset_top = 497.0
+offset_right = 453.0
+offset_bottom = 537.0
+scale = Vector2(2.7059, 2.29065)
+script = ExtResource("2_1v8gd")
+
+[node name="PassiveSlot" parent="UI/Character" instance=ExtResource("2_xtvme")]
+layout_mode = 0
+offset_left = -0.890976
+offset_top = 15.0
+offset_right = 39.109
+offset_bottom = 55.0
+scale = Vector2(1.02015, 1.03049)
+slot_type = 1
+
+[node name="PassiveSlot2" parent="UI/Character" instance=ExtResource("2_xtvme")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.388
+anchor_top = -3.209
+anchor_right = -1.388
+anchor_bottom = -3.209
+offset_left = 155.781
+offset_top = 144.36
+offset_right = 195.781
+offset_bottom = 184.36
+scale = Vector2(1.02015, 1.03049)
+slot_type = 2
+
+[node name="ActiveSlot" parent="UI/Character" instance=ExtResource("6_7mmrc")]
+layout_mode = 0
+offset_left = 48.7824
+offset_top = -1.74623
+offset_right = 88.7824
+offset_bottom = 38.2538
+scale = Vector2(1.0393, 0.984085)
+slot_type = 3
+
+[node name="ATK" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 565.0
+offset_top = 446.0
+offset_right = 640.0
+offset_bottom = 488.0
+theme_override_fonts/font = ExtResource("9_sx3ft")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="inventorylabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 50.0
+offset_right = 893.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("9_sx3ft")
+theme_override_font_sizes/font_size = 108
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="player" parent="." instance=ExtResource("6_ivqje")]
+visible = false
+position = Vector2(1092, 595)
+scale = Vector2(3.72033, 3.43947)
+
+[node name="AbstractData" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(930, 56)
+
+[node name="AbstractData2" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(58, 208)
+ID = "1"
+
+[node name="AbstractData3" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(69, 590)
+ID = "2"
+
+[node name="AbstractData4" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(991, 341)
+ID = "3"
+
+[node name="AbstractData5" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(987, 490)
+ID = "4"
+
+[node name="AbstractData6" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(1073, 152)
+ID = "5"
+
+[node name="AbstractData7" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(218, 71)
+ID = "6"
+
+[node name="AbstractData8" parent="." instance=ExtResource("7_udffo")]
+visible = false
+position = Vector2(217, 356)
+ID = "7"

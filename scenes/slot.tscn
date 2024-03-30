@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfr2drlo4tal5"]
+
+[ext_resource type="Script" path="res://scripts/slot.gd" id="1_7q760"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="2_ikyih"]
+[ext_resource type="Texture2D" uid="uid://bialluma8dp5a" path="res://assets/curated/red.jpg" id="2_wxr7y"]
+
+[node name="slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.15019, 3.79471)
+script = ExtResource("1_7q760")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_wxr7y")
+expand_mode = 1
+script = ExtResource("2_ikyih")
+
+[node name="debug" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8

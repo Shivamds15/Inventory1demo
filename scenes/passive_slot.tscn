@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://20rvrdxamqjt"]
+
+[ext_resource type="PackedScene" uid="uid://dfr2drlo4tal5" path="res://scenes/slot.tscn" id="1_4vuq2"]
+[ext_resource type="Script" path="res://scripts/passive_slot.gd" id="2_qjri1"]
+
+[node name="PassiveSlot" instance=ExtResource("1_4vuq2")]
+script = ExtResource("2_qjri1")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjdy01ajvon4"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_55rrn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f0b01"]
+size = Vector2(20, 20)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_55rrn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(3.1, 2.75)
+texture = SubResource("PlaceholderTexture2D_f0b01")
+
+[node name="ATK" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -62.0
+offset_right = 43.0
+offset_bottom = -14.0
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
